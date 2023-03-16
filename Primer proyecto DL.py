@@ -9,7 +9,11 @@ def hexdec(n):
     print(n) 
     n = int(n, base=16)
     return n
-
+"""
+def bindec(n):
+    for i in n:
+        n=n*
+"""
 def Complemento2(n):
     #Invertimos los unos y los ceros (Complemento a1):
     for i in range(len(n)):
@@ -26,27 +30,49 @@ def Complemento2(n):
         elif n[i]==1:
             n[i]=0
 
-def main():                
+def main():
     bits=int(input("Seleccione numero de bit de los factores:"))
-    print("Dijite un numero entre 0 y", (2**bits)-1)
+    nbi=(2**bits)-1
+    print("Dijite un numero entre 0 y", nbi)
     print("Digite antes del numero d:decimal, h:hexadecimal, b:binario")
+    
     num1=input("Primer factor:")
     num2=input("Segundo factor:")
-    notacion_num1 = num1[0]
-    notacion_num2 = num2[0]
+    nota_num1 = num1[0]
+    nota_num2 = num2[0]
+    bin1 = switch_menu(nota_num1, num1)
+    bin2 = switch_menu(nota_num2, num2)
+    print("notacion: ", nota_num1, " numero: ", num1[1:])
+    print("notacion: ", nota_num2, " numero: ", num2[1:])
+    print("binario factor 1",bin1)
+    print("binario factor 2",bin2)
+    z=int(bin1,2)
+    w=int(bin2,2)
+    mulbin(z,w)
     
-    num1 = switch_menu(notacion_num1, num1)
-    num2 = switch_menu(notacion_num2, num2)
+def mulbin(x,y):
+    result = 0
+    print(decbin(x))
+    print(decbin(y))
+    print("-----------------")
+    while y != 0:
+        if (y) & 1:
+            print(decbin(x))
+            result += x
+        else:
+            print(0);
+        print("--------------")
+        print(decbin(result))
+        x <<= 1
+        y >>= 1
+    print("Resultado en decimal", result)
+    print("Resultado binario",decbin(result))
 
-    print("binario factor 1",num1)
-    print("binario factor 2",num2)
-    
         
 
 def switch_menu(notacion, num):
-    print("notacion: ", notacion, " numero: ", num)
     if(notacion == 'b'):
-        return int(num[1:])
+        return num[1:]
     if(notacion == 'd'):
         num = decbin(int(num[1:]))
         return num
@@ -56,10 +82,10 @@ def switch_menu(notacion, num):
         return num
     if(notacion.isdigit()):
         num = decbin(int(num))
+        notacion = "."
         return num
     else:
         print('Revise la notacion de los factores')
-
 main()
 
 
