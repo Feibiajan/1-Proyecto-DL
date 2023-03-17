@@ -14,28 +14,27 @@ def bindec(n):
     for i in n:
         n=n*
 """
-def Complemento2(n):
-    #Invertimos los unos y los ceros (Complemento a1):
-    for i in range(len(n)):
-        if n[i]==0:
-            n[i]=1
-        elif n[i]==1:
-            n[i]=0
-
-    #Sumamos uno a la derecha (Complemento a2): 
-    for i in range(7,-1,-1):  #Recorre la lista de derecha a izquierda, empieza en el indice 7, va hasta el indice 0 y decrementa en 1
-        if n[i]==0:
-            n[i]=1
-            break
-        elif n[i]==1:
-            n[i]=0
+def nega1(n,m):
+    if n == "s":
+        m=-int(n,2)
+        print(bin1)
+        
+    else:
+        return n
+    
+def nega2(n,m):
+    if n == "s":
+        bin2=-int(m,2) 
+    else:
+        return m
 
 def main():
     bits=int(input("Seleccione numero de bit de los factores:"))
     nbi=(2**bits)-1
     print("Dijite un numero entre 0 y", nbi)
     print("Digite antes del numero d:decimal, h:hexadecimal, b:binario")
-    
+    neg1=input("Si el primer factor es negativo presione s: ")
+    neg2=input("Si el segundo factor es negativo presione s: ")
     num1=input("Primer factor:")
     num2=input("Segundo factor:")
     nota_num1 = num1[0]
@@ -44,9 +43,12 @@ def main():
     bin2 = switch_menu(nota_num2, num2)
     print("notacion: ", nota_num1, " numero: ", num1[1:])
     print("notacion: ", nota_num2, " numero: ", num2[1:])
+    op1=bin1
+    op2=bin2
     print("binario factor 1",bin1)
     print("binario factor 2",bin2)
-    z=int(bin1,2)
+    z=-int(bin1,2)
+    print(z)
     w=int(bin2,2)
     mulbin(z,w)
     
