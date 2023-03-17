@@ -9,23 +9,13 @@ def hexdec(n):
     print(n) 
     n = int(n, base=16)
     return n
-"""
-def bindec(n):
-    for i in n:
-        n=n*
-"""
-def nega1(n,m):
+
+def negacion(n,m):
     if n == "s":
-        m=-int(n,2)
-        print(bin1)
-        
+        m=-int(m,2)
+        return m
     else:
-        return n
-    
-def nega2(n,m):
-    if n == "s":
-        bin2=-int(m,2) 
-    else:
+        m=int(m,2)
         return m
 
 def main():
@@ -41,16 +31,13 @@ def main():
     nota_num2 = num2[0]
     bin1 = switch_menu(nota_num1, num1)
     bin2 = switch_menu(nota_num2, num2)
-    print("notacion: ", nota_num1, " numero: ", num1[1:])
-    print("notacion: ", nota_num2, " numero: ", num2[1:])
-    op1=bin1
-    op2=bin2
+    op1=negacion(neg1,bin1)
+    op2=negacion(neg2,bin2)
+    print("notacion: ", nota_num1, " numero: ", op1)
+    print("notacion: ", nota_num2, " numero: ", op2)
     print("binario factor 1",bin1)
     print("binario factor 2",bin2)
-    z=-int(bin1,2)
-    print(z)
-    w=int(bin2,2)
-    mulbin(z,w)
+    mulbin(op1,op2)
     
 def mulbin(x,y):
     result = 0
